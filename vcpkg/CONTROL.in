@@ -1,0 +1,3 @@
+Source: libmodbus
+Version: @LIBMODBUS_VERSION@
+Description: A Modbus library for Linux, Mac OS X, FreeBSD, QNX and Windows

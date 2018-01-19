@@ -15,6 +15,11 @@ if(WIN32)
     configure_file(${src}/win32/config.h.win32 ${CMAKE_BINARY_DIR}/config.h @ONLY)
 endif()
 
+set(vcpkg ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg)
+configure_file(${vcpkg}/CONTROL.in ${CMAKE_BINARY_DIR}/ports/libmodbus/CONTROL @ONLY)
+configure_file(${vcpkg}/port.cmake ${CMAKE_BINARY_DIR}/ports/libmodbus/CONTROL COPYONLY)
+configure_file(${vcpkg}/pack.bat.in ${CMAKE_BINARY_DIR}/pack.bat @ONLY)
+
 # Define sources and (public/private) headers for the packaging
 set(LIBMODBUS_SOURCES
     ${src}/modbus.c
