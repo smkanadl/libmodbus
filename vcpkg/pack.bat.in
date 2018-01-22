@@ -6,10 +6,10 @@ IF ERRORLEVEL 1 GOTO End
 vcpkg.exe install libmodbus:x86-windows libmodbus:x64-windows --head
 IF ERRORLEVEL 1 GOTO End
 
-vcpkg.exe export libmodbus:x86-windows libmodbus:x64-windows --nuget --nuget-id="libmodbus" --nuget-version="@LIBMODBUS_VERSION@"
+vcpkg.exe export libmodbus:x86-windows libmodbus:x64-windows --nuget --nuget-id="libmodbus" --nuget-version="@LIBMODBUS_VERSION@.@LIBMODBUS_VERSION_BUILD@"
 IF ERRORLEVEL 1 GOTO End
 
-NuGet.exe push %VCPGK_PATH%\libmodbus.@LIBMODBUS_VERSION@.nupkg -Source %NUGET_SOURCE%
+NuGet.exe push %VCPGK_PATH%\libmodbus.@LIBMODBUS_VERSION@.@LIBMODBUS_VERSION_BUILD@.nupkg -Source %NUGET_SOURCE%
 IF ERRORLEVEL 1 GOTO End
 
 :End

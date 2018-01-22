@@ -5,6 +5,18 @@ project(libmodbus C)
 set(src ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Configure files containing the version number (Copied from configure.ac)
+find_package(GIT REQUIRED)
+if(GIT_FOUND)
+    execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-list --count HEAD
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        OUTPUT_VARIABLE LIBMODBUS_VERSION_BUILD
+        ERROR_QUIET
+        OUTPUT_STRIP_TRAILING_WHITESPACE)
+else()
+    set(LIBMODBUS_VERSION_BUILD 0)
+endif()
+
 set(LIBMODBUS_VERSION_MAJOR 3)
 set(LIBMODBUS_VERSION_MINOR 1)
 set(LIBMODBUS_VERSION_MICRO 4)
@@ -19,6 +31,7 @@ set(vcpkg ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg)
 configure_file(${vcpkg}/CONTROL.in ${CMAKE_BINARY_DIR}/ports/libmodbus/CONTROL @ONLY)
 configure_file(${vcpkg}/port.cmake ${CMAKE_BINARY_DIR}/ports/libmodbus/portfile.cmake COPYONLY)
 configure_file(${vcpkg}/pack.bat.in ${CMAKE_BINARY_DIR}/pack.bat @ONLY)
+
 
 # Define sources and (public/private) headers for the packaging
 set(LIBMODBUS_SOURCES
