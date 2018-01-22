@@ -17,7 +17,7 @@ endif()
 
 set(vcpkg ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg)
 configure_file(${vcpkg}/CONTROL.in ${CMAKE_BINARY_DIR}/ports/libmodbus/CONTROL @ONLY)
-configure_file(${vcpkg}/port.cmake ${CMAKE_BINARY_DIR}/ports/libmodbus/CONTROL COPYONLY)
+configure_file(${vcpkg}/port.cmake ${CMAKE_BINARY_DIR}/ports/libmodbus/port.cmake COPYONLY)
 configure_file(${vcpkg}/pack.bat.in ${CMAKE_BINARY_DIR}/pack.bat @ONLY)
 
 # Define sources and (public/private) headers for the packaging
