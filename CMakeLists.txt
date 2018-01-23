@@ -74,4 +74,6 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}_export
         ARCHIVE DESTINATION lib
         PUBLIC_HEADER DESTINATION include)
 install(FILES "${CMAKE_SOURCE_DIR}/libmodbus-config.cmake" DESTINATION lib/cmake/${PROJECT_NAME})
+install(FILES ${LIBMODBUS_SOURCES} DESTINATION src)
+
 install(EXPORT ${PROJECT_NAME}_export NAMESPACE Libmodbus:: DESTINATION lib/cmake/${PROJECT_NAME})
