@@ -1,4 +1,4 @@
-REM Requires PATH to point to vcpgk and nuget and NUGET_SOURCE defined to the nuget server url
+REM Requires PATH to point to vcpgk
 
 vcpkg.exe remove libmodbus:x86-windows libmodbus:x64-windows
 IF ERRORLEVEL 1 GOTO End
@@ -10,4 +10,3 @@ vcpkg.exe export libmodbus:x86-windows libmodbus:x64-windows --nuget --nuget-id=
 IF ERRORLEVEL 1 GOTO End
 
 :End
-exit %ERRORLEVEL%
